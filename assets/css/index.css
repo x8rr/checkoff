@@ -1,30 +1,73 @@
+:root {
+    --color-bg-main: #F0F7FF;
+    --color-surface: #FFFFFF;
+    --color-primary: #00A3FF;
+    --color-primary-light: #E0F2FE;
+    --color-text-dark: #1E293B;
+    --color-text-medium: #64748B;
+    --color-border-soft: #E2E8F0;
+    --shadow-brand: 0 20px 25px -5px rgba(0, 163, 255, 0.1);
+
+    --checkbox-color: #00A3FF;
+    --checkbox-bg: #E0F2FE;
+    --checkbox-border: #BAE6FD;
+}
+
+.dark {
+    --color-bg-main: #0F172A;
+    --color-surface: #1E293B;
+    --color-primary: #38BDF8;
+    --color-primary-light: #0F172A;
+    --color-text-dark: #F8FAFC;
+    --color-text-medium: #CBD5E1;
+    --color-border-soft: #334155;
+    --shadow-brand: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+
+    --checkbox-color: #38BDF8;
+    --checkbox-bg: #1E293B;
+    --checkbox-border: #334155;
+}
+
+.theme-card {
+    background-color: var(--color-surface) !important;
+    box-shadow: var(--shadow-brand) !important;
+}
+
+.theme-text-main {
+    color: var(--color-text-dark) !important;
+}
+
+.theme-text-sub {
+    color: var(--color-text-medium) !important;
+}
+
+.theme-border {
+    border-color: var(--color-border-soft) !important;
+}
+
 html {
     background: var(--color-bg-main);
-} 
+    color: var(--color-text-medium);
+    transition: background 0.2s ease;
+}
 
 body {
     margin: 0;
 }
 
-p, small {
-    color: var(--color-text-medium);
+h1,
+.text-header {
+    color: var(--color-text-dark);
+}
+
+.card-bg {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-main);
+    border: 1px solid var(--color-border-soft);
 }
 
 .homelogo {
     height: 110px;
-}
-
-.dac {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.vac {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .hac {
@@ -33,30 +76,12 @@ p, small {
     transform: translateX(-50%);
 }
 
-/* from uiverse */
-
-.checkbox-container {
-    display: flex;
-    gap: 20px;
-    padding: 10px;
-    background: #f8fafc;
-    border-radius: 12px;
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -2px rgba(0, 0, 0, 0.05);
-}
-
 .ios-checkbox {
     --checkbox-size: 28px;
-    --checkbox-color: #3e99ed;
-    --checkbox-bg: #dbeafe;
-    --checkbox-border: #93c5fd;
-
     position: relative;
     display: inline-block;
     cursor: pointer;
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .ios-checkbox input {
@@ -76,7 +101,7 @@ p, small {
     inset: 0;
     border-radius: 8px;
     border: 2px solid var(--checkbox-border);
-    background: white;
+    background: var(--color-surface);
     transition: all 0.2s ease;
 }
 
@@ -97,7 +122,6 @@ p, small {
     transition: stroke-dashoffset 0.3s ease 0.1s;
 }
 
-/* Checked State */
 .ios-checkbox input:checked+.checkbox-wrapper .checkbox-bg {
     background: var(--checkbox-color);
     border-color: var(--checkbox-color);
@@ -111,28 +135,6 @@ p, small {
     stroke-dashoffset: 0;
 }
 
-/* Hover Effects */
-.ios-checkbox:hover .checkbox-wrapper {
-    transform: scale(1.05);
-}
-
-/* Active Animation */
-.ios-checkbox:active .checkbox-wrapper {
-    transform: scale(0.95);
-}
-
-/* Focus Styles */
-.ios-checkbox input:focus+.checkbox-wrapper .checkbox-bg {
-    box-shadow: 0 0 0 4px var(--checkbox-bg);
-}
-
-.ios-checkbox.red {
-    --checkbox-color: #ef4444;
-    --checkbox-bg: #fee2e2;
-    --checkbox-border: #fca5a5;
-}
-
-/* Animation */
 @keyframes bounce {
 
     0%,

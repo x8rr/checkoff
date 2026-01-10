@@ -10,9 +10,9 @@
 
 ## Roadmap
 - [ ] Google Classroom integration
-- [ ] Timed tasks (set expiration date)
-- [ ] Themes
-- [ ] Task exporting/importing
+- [x] Timed tasks (set expiration date)
+- [x] Themes
+- [x] Task exporting/importing
 
 ## Contributing
 To contribute, simply fork the repository, add your feature, and PR.
