@@ -18,41 +18,90 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+<span id="totalcount2" style="display: none;"></span>
 
 <body>
     <br><br>
     <div class="hac" style="text-align: center;">
         <img src="/assets/img/branding/logo.png" class="homelogo hac" style="position: relative;" alt="Checkoff Logo">
-        <h1 class="text-4xl mt-2 font-black text-transparent bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text p-2">Checkoff</h1>
+        <h1
+            class="text-4xl mt-2 font-black text-transparent bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text p-2">
+            Checkoff</h1>
         <p class="font-medium">Keep your tasks moving forward.</p>
         <br>
         <div class="flex flex-row content-center">
-            <div class="bg-blue-400/25 p-4 shadow-md ring-white ring text-blue-800 font-black w-30 mr-2 ml-2 rounded-3xl">
-                <span id="totalcount" class="text-2xl text-blue-800">1</span><br>
+            <div class="bg-blue-400/25 p-4 w-1/3 shadow-md ring-white ring text-blue-800 font-black mr-2 rounded-3xl">
+                <span id="totalcount" class="text-2xl text-blue-800">0</span><br>
                 <span class="text-xs opacity-75">TOTAL</span>
             </div>
-            <div class="bg-yellow-400/25 p-4 shadow-md ring-white ring text-yellow-800 font-black w-30 mr-2 ml-2 rounded-3xl">
-                <span id="totalcount" class="text-2xl text-yellow-800">1</span><br>
-                <span class="text-xs opacity-75">TOTAL</span>
+            <div
+                class="bg-yellow-400/25 p-4 shadow-md ring-white ring text-yellow-800 font-black w-1/3 mr-2 ml-2 rounded-3xl">
+                <span id="todocount2" class="text-2xl text-yellow-800">0</span><br>
+                <span class="text-xs opacity-75">TO DO</span>
             </div>
-            <div class="bg-green-400/25 p-4 shadow-md ring-white ring text-green-800 font-black w-30 mr-2 ml-2 rounded-3xl">
-                <span id="totalcount" class="text-2xl text-green-800">1</span><br>
-                <span class="text-xs opacity-75">TOTAL</span>
-            </div>
-            <div class="bg-red-400/25 p-4 shadow-md ring-white ring text-red-800 font-black w-30 mr-2 ml-2 rounded-3xl">
-                <span id="totalcount" class="text-2xl text-red-800">1</span><br>
-                <span class="text-xs opacity-75">TOTAL</span>
+            <div class="bg-green-400/25 p-4 shadow-md ring-white ring text-green-800 font-black w-1/3 ml-2 rounded-3xl">
+                <span id="donecount2" class="text-2xl text-green-800">0</span><br>
+                <span class="text-xs opacity-75">DONE</span>
             </div>
         </div>
         <br>
-        <div class="bg-white transition-all duration-200 hover:bg-sky-100 cursor-pointer flex flex-row content-center p-5 w-132 hac pt-10 pb-10 rounded-3xl text-blue-800 h-fit shadow-2xl shadow-sky-500/50">
+        <div onclick="newTaskModal()"
+            class="bg-white transition-all duration-200 hover:bg-sky-100 cursor-pointer flex flex-row content-center p-5 w-132 hac pt-10 pb-10 rounded-3xl text-blue-800 h-fit shadow-2xl shadow-sky-500/50">
             <div class="rounded-[15px] bg-sky-400/50 mr-4 cursor-pointer text-sky-500 h-12 w-12 p-[11px] -mt-4 -mb-4">
                 <i data-lucide="plus"></i>
             </div>
-            <input style="pointer-events: none !important;" type="text" class="bg-none cursor-pointer outline-none border-none text-sky-600 font-bold w-3/4 -mt-2 -mb-2" placeholder="What are you doing today?">
+            <input style="pointer-events: none !important;" type="text"
+                class="bg-none cursor-pointer outline-none border-none text-sky-600 font-bold w-3/4 -mt-2 -mb-2"
+                placeholder="What are you doing today?">
+        </div>
+        <br><br><br><br><br><br>
+        <div id="todo"
+            class="relative left-1/2 -translate-x-1/2 flex flex-col items-center w-132 content-center justify-center">
+            <div class="flex flex-row items-left w-132">
+                <div class="bg-blue-400 w-2 h-8 rounded-md"></div>
+                <span class="font-black text-lg text-blue-950 mt-0.5 ml-4">Remaining Tasks</span>
+                <span id="todocount"
+                    class="bg-white h-8 w-8 p-1 rounded-[12px] ml-4 font-bold text-gray-400 shadow-lg shadow-sky-500/15">0</span>
+            </div><br>
+            <div class="flex flex-col w-full" id="todocontainer">
+
+            </div>
+        </div>
+        <br><br>
+        <div id="done"
+            class="relative left-1/2 -translate-x-1/2 flex flex-col relative items-center w-132 content-center justify-center">
+            <div class="flex flex-row items-left w-132">
+                <div class="bg-green-400 w-2 h-8 rounded-md"></div>
+                <span class="font-black text-lg text-green-950 mt-0.5 ml-4">Completed Tasks</span>
+                <span id="donecount"
+                    class="bg-white h-8 w-8 p-1 rounded-[12px] ml-4 font-bold text-gray-400 shadow-lg shadow-sky-500/15">0</span>
+            </div><br>
+            <div id="donecontainer" class="flex flex-col w-full">
+
+            </div>
         </div>
     </div>
+    <div id="newTaskModal"
+        class="scale-95 opacity-0 pointer-events-none bg-white transition-all duration-200 shadow-2xl shadow-sky-500/25 p-10 fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-4xl h-fit w-96"
+        style="z-index: 10 !important;">
+        <h1 class="text-2xl font-extrabold text-blue-950">New Task</h1><br>
+        <input type="text" id="task-title"
+            class="w-full h-14 p-4 rounded-2xl mb-4 bg-white/80 backdrop-blur-sm border border-slate-200 text-sky-800 font-semibold placeholder:font-semibold placeholder:text-slate-400 placeholder:font-normal shadow-sm transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-400 focus:scale-[1.02] focus:shadow-xl"
+            placeholder="What needs to be done?">
+        <div class="flex flex-row items-center justify-end gap-3 mt-4">
+            <button type="button" onclick="closeTaskModal()"
+                class="px-5 py-2.5 rounded-[15px] ring-[1.5px] hover:-translate-y-0.5 ring-gray-300/50 cursor-pointer text-slate-500 font-medium transition-all duration-200 hover:bg-slate-100 active:scale-95">
+                Cancel
+            </button>
 
+            <button type="submit" onclick="addTask(document.getElementById('task-title').value.trim())"
+                class="px-6 py-2.5 rounded-[15px] cursor-pointer bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold shadow-lg shadow-sky-200 transition-all duration-200 hover:shadow-sky-300 hover:-translate-y-0.5 active:scale-95 active:translate-y-0">
+                Add Task
+            </button>
+        </div>
+    </div>
+    <div id="overlay" class="w-full hidden h-full fixed left-0 top-0 bg-black/80 backdrop-blur-sm" style="z-index: 0;">
+    </div>
     <script>
         async function loadIcons() {
             await lucide.createIcons()
@@ -61,6 +110,171 @@
 
         loadIcons()
     </script>
+    <script>
+        function newTaskModal() {
+            const modal = document.getElementById("newTaskModal")
+            const overlay = document.getElementById("overlay")
 
+            overlay.classList.remove("hidden")
+            modal.classList.remove("scale-95", "opacity-0", "pointer-events-none")
+        }
+
+        function closeTaskModal() {
+            const modal = document.getElementById("newTaskModal")
+            const overlay = document.getElementById("overlay")
+
+            overlay.classList.add("hidden")
+            modal.classList.add("scale-95", "opacity-0", "pointer-events-none")
+        }
+
+        let count = 0
+        function upCount(id1, id2) {
+            const el1 = document.getElementById(id1)
+            const el2 = document.getElementById(id2)
+            if (el1) el1.textContent = parseInt(el1.textContent || 0) + 1
+            if (el2) el2.textContent = parseInt(el2.textContent || 0) + 1
+        }
+
+        function downCount(id1, id2) {
+            const el1 = document.getElementById(id1)
+            const el2 = document.getElementById(id2)
+            if (el1) el1.textContent = Math.max(0, parseInt(el1.textContent || 0) - 1)
+            if (el2) el2.textContent = Math.max(0, parseInt(el2.textContent || 0) - 1)
+        }
+
+        function addTask(t) {
+            const savedTasks = JSON.parse(localStorage.getItem("checkoff_savedTasks")) ?? []
+
+            const newTask = {
+                id: savedTasks.length + 1,
+                title: t,
+                status: "todo"
+            }
+
+            savedTasks.push(newTask)
+
+            localStorage.setItem("checkoff_savedTasks", JSON.stringify(savedTasks))
+
+            const container = document.getElementById("todocontainer")
+
+            upCount("todocount", "todocount2")
+
+            const taskEl = document.createElement("div")
+            taskEl.classList.add("bg-white", "shadow-2xl", "flex-row", "flex", "items-left", "mb-4", "shadow-sky-500/25", "w-full", "p-5", "rounded-3xl")
+            taskEl.innerHTML = `
+                <label class="ios-checkbox blue relative mr-1" data-checkoff="${newTask.id}">
+                    <input type="checkbox" />
+                    <div class="checkbox-wrapper">
+                        <div class="checkbox-bg"></div>
+                        <svg class="checkbox-icon" viewBox="0 0 24 24" fill="none">
+                            <path class="check-path" d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </label>
+                <span class="font-bold text-slate-700 ml-3 text-[17px] mt-0.5">${newTask.title}</span>
+            `
+            container.prepend(taskEl)
+            closeTaskModal()
+            loadTasks()
+        }
+
+        function checkoff(taskId) {
+            let saved = JSON.parse(localStorage.getItem("checkoff_savedTasks")) ?? []
+
+            saved = saved.map(t => {
+                if (t.id === taskId) {
+                    t.status = "done"
+                }
+                return t
+            })
+
+            localStorage.setItem("checkoff_savedTasks", JSON.stringify(saved))
+
+            downCount("todocount", "todocount2")
+            upCount("donecount", "donecount2")
+
+            document.getElementById("todocontainer").innerHTML = ""
+
+            loadTasks()
+        }
+
+        function loadTasks() {
+            const todoContainer = document.getElementById("todocontainer")
+            const doneContainer = document.getElementById("donecontainer")
+            const saved = JSON.parse(localStorage.getItem("checkoff_savedTasks")) ?? []
+
+            document.getElementById("todocount").textContent = "0"
+            document.getElementById("todocount2").textContent = "0"
+            document.getElementById("donecount").textContent = "0"
+            document.getElementById("donecount2").textContent = "0"
+            document.getElementById("totalcount").textContent = "0"
+            document.getElementById("totalcount2").textContent = "0"
+
+            todoContainer.innerHTML = ""
+            doneContainer.innerHTML = ""
+
+            const todoTasks = saved.filter(t => t.status !== "done")
+            const doneTasks = saved.filter(t => t.status === "done")
+
+            if (todoTasks.length === 0) {
+                todoContainer.innerHTML = `
+            <div class="w-full rounded-4xl bg-gray-100/25 p-5 border border-dashed text-gray-500 border-gray-300 h-45 relative animate-in fade-in zoom-in duration-500">
+                <div class="absolute left-1/2 top-1/2 items-center flex-col flex text-center -translate-y-1/2 -translate-x-1/2">
+                    <i data-lucide="party-popper" class="scale-150 mb-4"></i>
+                    <h1 class="text-center font-bold text-2xl">Nice!</h1>
+                    <p class="font-medium">You're all caught up.</p>
+                </div>
+            </div>
+        `
+                lucide.createIcons()
+            } else {
+                todoTasks.forEach(t => {
+                    const taskEl = document.createElement("div")
+                    taskEl.classList.add("bg-white", "shadow-2xl", "flex-row", "flex", "items-left", "mb-4", "shadow-sky-500/25", "w-full", "p-5", "rounded-3xl")
+                    taskEl.innerHTML = `
+                <label class="ios-checkbox blue relative mr-1" data-checkoff="${t.id}">
+                    <input type="checkbox" onchange="checkoff(${t.id})" />
+                    <div class="checkbox-wrapper">
+                        <div class="checkbox-bg"></div>
+                        <svg class="checkbox-icon" viewBox="0 0 24 24" fill="none">
+                            <path class="check-path" d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                </label>
+                <span class="font-bold text-slate-700 ml-3 text-[17px] mt-0.5">${t.title}</span>
+            `
+                    todoContainer.prepend(taskEl)
+                    upCount("todocount", "todocount2")
+                })
+            }
+
+            doneTasks.forEach(t => {
+                const taskEl = document.createElement("div")
+                taskEl.classList.add("bg-white", "shadow-2xl", "flex-row", "flex", "items-left", "mb-4", "shadow-sky-500/25", "w-full", "p-5", "rounded-3xl", "opacity-25")
+                taskEl.innerHTML = `
+            <label class="ios-checkbox pointer-events-none blue relative mr-1" data-checkoff="${t.id}">
+                <input type="checkbox" checked disabled />
+                <div class="checkbox-wrapper">
+                    <div class="checkbox-bg"></div>
+                    <svg class="checkbox-icon" viewBox="0 0 24 24" fill="none">
+                        <path class="check-path" d="M4 12L10 18L20 6" stroke="currentColor" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </label>
+            <span class="font-bold text-slate-700 ml-3 text-[17px] mt-0.5">${t.title}</span>
+        `
+                doneContainer.prepend(taskEl)
+                upCount("donecount", "donecount2")
+            })
+
+            saved.forEach(() => upCount("totalcount", "totalcount2"))
+        }
+
+        loadTasks()
+    </script>
 </body>
+
 </html>
