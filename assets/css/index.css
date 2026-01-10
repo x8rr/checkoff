@@ -1,0 +1,30 @@
+html {
+    background: var(--color-bg-main);
+}
+
+p, small {
+    color: var(--color-text-medium);
+}
+
+.homelogo {
+    height: 110px;
+}
+
+.dac {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vac {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hac {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

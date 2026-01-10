@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple ToDo</title>
-
+    <title>Checkoff | The Better To-Do List</title>
+    <link rel="shortcut icon" href="/assets/img/branding/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/colors/default.css" id="csslink">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            font-family: "Plus Jakarta Sans";
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
 
+<body>
+    <br><br>
+    <div class="hac" style="text-align: center;">
+        <img src="/assets/img/branding/logo.png" class="homelogo hac" style="position: relative;" alt="Checkoff Logo">
+        <h1 class="text-4xl mt-2 font-black text-transparent bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text p-2">Checkoff</h1>
+        <p class="font-medium">Keep your tasks moving forward.</p>
+        <br>
+        <div class="flex flex-row content-center">
+            <div class="bg-blue-400/25 p-4 shadow-md ring-white ring text-blue-800 font-black w-30 mr-2 ml-2 rounded-3xl">
+                <span id="totalcount" class="text-2xl text-blue-800">1</span><br>
+                <span class="text-xs opacity-75">TOTAL</span>
+            </div>
+            <div class="bg-yellow-400/25 p-4 shadow-md ring-white ring text-yellow-800 font-black w-30 mr-2 ml-2 rounded-3xl">
+                <span id="totalcount" class="text-2xl text-yellow-800">1</span><br>
+                <span class="text-xs opacity-75">TOTAL</span>
+            </div>
+            <div class="bg-green-400/25 p-4 shadow-md ring-white ring text-green-800 font-black w-30 mr-2 ml-2 rounded-3xl">
+                <span id="totalcount" class="text-2xl text-green-800">1</span><br>
+                <span class="text-xs opacity-75">TOTAL</span>
+            </div>
+            <div class="bg-red-400/25 p-4 shadow-md ring-white ring text-red-800 font-black w-30 mr-2 ml-2 rounded-3xl">
+                <span id="totalcount" class="text-2xl text-red-800">1</span><br>
+                <span class="text-xs opacity-75">TOTAL</span>
+            </div>
+        </div>
+        <br>
+        <div class="bg-white transition-all duration-200 hover:bg-sky-100 cursor-pointer flex flex-row content-center p-5 w-132 hac pt-10 pb-10 rounded-3xl text-blue-800 h-fit shadow-2xl shadow-sky-500/50">
+            <div class="rounded-[15px] bg-sky-400/50 mr-4 cursor-pointer text-sky-500 h-12 w-12 p-[11px] -mt-4 -mb-4">
+                <i data-lucide="plus"></i>
+            </div>
+            <input style="pointer-events: none !important;" type="text" class="bg-none cursor-pointer outline-none border-none text-sky-600 font-bold w-3/4 -mt-2 -mb-2" placeholder="What are you doing today?">
+        </div>
+    </div>
+
+    <script>
+        async function loadIcons() {
+            await lucide.createIcons()
+            console.log("Checkoff — Lucide icons created")
+        }
+
+        loadIcons()
+    </script>
 
 </body>
 </html>

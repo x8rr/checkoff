@@ -1,0 +1,25 @@
+:root {
+    --color-bg-main: #F0F7FF;
+    --color-primary: #00A3FF;
+    --color-primary-light: #E0F2FE;
+    --color-primary-dark: #0081CC;
+    --color-surface: #FFFFFF;
+    --color-border-soft: #E2E8F0;
+    --color-border-accent: #BAE6FD;
+    --color-text-dark: #1E293B;
+    --color-text-medium: #64748B;
+    --color-text-light: #94A3B8;
+    --color-text-muted: #CBD5E1;
+    --color-success: #10B981;
+    --color-success-bg: #D1FAE5;
+    --color-warning: #F59E0B;
+    --color-warning-bg: #FEF3C7;
+    --color-error: #F43F5E;
+    --color-error-bg: #FFE4E6;
+    --radius-xl: 28px;
+    --shadow-brand: 0 20px 25px -5px rgba(0, 163, 255, 0.1), 0 8px 10px -6px rgba(0, 163, 255, 0.1)
+}
+
+/* 
+get mad at me, i got google gemini to create me a theme based off the logo
+*/
