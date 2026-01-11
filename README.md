@@ -22,6 +22,7 @@
 - [ ] Push Notifications
 - [ ] More themes
 - [ ] Color Coding
+- [ ] React Native/Astro Rewrite
 
 ## Contributing
 To contribute, simply fork the repository, add your feature, and PR.
