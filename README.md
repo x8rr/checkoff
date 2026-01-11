@@ -9,7 +9,7 @@
 - Task counter
 
 ## Roadmap
-- [ ] Google Classroom integration
+- [x] Google Classroom integration (scrapped)
 - [x] Timed tasks (set expiration date)
 - [x] Themes
 - [x] Task exporting/importing
