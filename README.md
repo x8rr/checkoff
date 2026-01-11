@@ -13,6 +13,15 @@
 - [x] Timed tasks (set expiration date)
 - [x] Themes
 - [x] Task exporting/importing
+- [ ] Times for expiration
+- [ ] Unarchive button
+#### V2
+- [ ] Dashboard, calendar, and other views
+- [ ] Multiple lists
+- [ ] Accounts and device sync
+- [ ] Push Notifications
+- [ ] More themes
+- [ ] Color Coding
 
 ## Contributing
 To contribute, simply fork the repository, add your feature, and PR.
