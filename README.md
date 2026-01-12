@@ -1,31 +1,28 @@
-<h1 align="center">Checkoff</h1>
-<p align="center"><img width="480" height="270" alt="image" src="https://github.com/user-attachments/assets/c7d6d369-f911-460a-89a2-7c764c2820d8" /></p>
-<p align="center"><i>If you like the website or this repo, please star!</i></p>
+## Usage
 
-## Features
-- Saves across sessions
-- Clean UI
-- ToDo and Completed sections
-- Task counter
+```bash
+$ npm install # or pnpm install or yarn install
+```
 
-## Roadmap
-- [x] Google Classroom integration (scrapped)
-- [x] Timed tasks (set expiration date)
-- [x] Themes
-- [x] Task exporting/importing
-- [ ] Times for expiration
-- [ ] Unarchive button
-#### V2
-- [ ] Dashboard, calendar, and other views
-- [ ] Multiple lists
-- [ ] Accounts and device sync
-- [ ] Push Notifications
-- [ ] More themes
-- [ ] Color Coding
-- [ ] React Native/Astro Rewrite
+### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
 
-## Contributing
-To contribute, simply fork the repository, add your feature, and PR.
+## Available Scripts
 
-## Credits
-x8r - Developer
+In the project directory, you can run:
+
+### `npm run dev`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+### `npm run build`
+
+Builds the app for production to the `dist` folder.<br>
+It correctly bundles Solid in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+## Deployment
+
+Learn more about deploying your application with the [documentations](https://vite.dev/guide/static-deploy.html)
