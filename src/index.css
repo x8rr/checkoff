@@ -881,6 +881,99 @@ h1,
     --tw-ring-color: rgba(14, 165, 233, 0.2);
 }
 
+/* flatpicker (calendar) theme */
+.flatpickr-calendar {
+    background: var(--color-surface);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-soft);
+    box-shadow: var(--shadow-brand);
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.flatpickr-months,
+.flatpickr-weekdays {
+    background: var(--color-surface);
+    color: var(--color-text-dark);
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.flatpickr-current-month {
+    font-weight: 800;
+    color: var(--color-text-dark);
+}
+
+.flatpickr-current-month input.cur-year {
+    font-weight: 700;
+    color: var(--color-text-dark);
+    background: transparent;
+    border: none;
+}
+
+.flatpickr-weekday {
+    color: var(--color-text-medium);
+    font-weight: 700;
+}
+
+.flatpickr-day {
+    border-radius: 10px;
+    color: var(--color-text-medium);
+    border: none;
+}
+
+.flatpickr-day:hover,
+.flatpickr-day:focus-visible {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.flatpickr-day.today {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: none;
+}
+
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: var(--color-text-medium);
+    opacity: 0.4;
+}
+
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg {
+    fill: var(--color-text-medium);
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+    fill: var(--color-primary);
+}
+
+.flatpickr-time,
+.flatpickr-time input,
+.flatpickr-time .flatpickr-time-separator {
+    color: var(--color-text-dark);
+}
+
+.flatpickr-alt-input {
+    background: transparent;
+}
+
 .placeholder\:font-semibold::placeholder {
     font-weight: 600;
 }
