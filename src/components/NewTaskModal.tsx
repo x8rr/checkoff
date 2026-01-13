@@ -1,5 +1,8 @@
-import { Show } from 'solid-js';
+import { Show, onMount, onCleanup, createEffect } from 'solid-js';
+import flatpickr from 'flatpickr';
 import type { Component } from 'solid-js';
+import type { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
+import 'flatpickr/dist/flatpickr.css';
 
 interface NewTaskModalProps {
   isOpen: boolean;
@@ -12,6 +15,36 @@ interface NewTaskModalProps {
 }
 
 const NewTaskModal: Component<NewTaskModalProps> = (props) => {
+  let dateInputRef: HTMLInputElement | undefined;
+  let picker: FlatpickrInstance | undefined;
+
+  onMount(() => {
+    if (!dateInputRef) return;
+    picker = flatpickr(dateInputRef, {
+      altInput: true,
+      altFormat: 'F j, Y',
+      altInputClass:
+        'w-full h-14 p-4 rounded-2xl mb-4 bg-transparent border theme-border theme-text-main font-semibold shadow-sm focus:outline-none focus:ring-4 focus:ring-sky-500/20 flatpickr-alt-input',
+      dateFormat: 'Y-m-d',
+      defaultDate: props.date || undefined,
+      disableMobile: true,
+      onChange: (_sel, str) => props.onDateChange(str),
+    });
+  });
+
+  createEffect(() => {
+    if (!picker) return;
+    if (props.date) {
+      picker.setDate(props.date, false);
+    } else {
+      picker.clear();
+    }
+  });
+
+  onCleanup(() => {
+    picker?.destroy();
+  });
+
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     props.onSubmit();
@@ -44,10 +77,12 @@ const NewTaskModal: Component<NewTaskModalProps> = (props) => {
             placeholder="What needs to be done?"
           />
           <input
-            type="date"
+            ref={(el) => (dateInputRef = el)}
+            type="text"
             value={props.date}
-            onInput={(e) => props.onDateChange(e.currentTarget.value)}
             class="w-full h-14 p-4 rounded-2xl mb-4 bg-transparent border theme-border theme-text-main font-semibold shadow-sm focus:outline-none focus:ring-4 focus:ring-sky-500/20"
+            placeholder="Select a date (optional)"
+            readonly
           />
           <div class="flex flex-row items-center justify-end gap-3 mt-4">
             <button
